@@ -22,25 +22,20 @@ This project demonstrates how to cache and retrieve complex objects (like a stru
 ## Installation
 
     1.	Clone the repository:
-
-git clone https://github.com/username/employee-caching.git
-cd employee-caching
+    > git clone https://github.com/terenzio/GoCacheExample.git
+    > cd employee-caching
 
     2.	Install dependencies:
-
-go mod tidy
+    > go mod tidy
 
     3.	Ensure Redis is running:
-
-docker run --name redis -d -p 6379:6379 redis
+    > docker run --name redis -d -p 6379:6379 redis
 
 ## Usage
 
-Running the Code
-
 Execute the application:
 
-go run main.go
+    > go run main.go
 
 Expected Output
 
@@ -49,14 +44,14 @@ Expected Output
 
 Example log output:
 
-2024/11/27 10:00:00 Initialized Redis client and store.
-2024/11/27 10:00:00 Initialized cache manager with Redis store.
-2024/11/27 10:00:00 Initialized marshaler for caching complex objects.
-2024/11/27 10:00:00 Prepared Employee object for caching: {ID:101 Name:Alice}
-2024/11/27 10:00:00 Storing Employee object in cache with key: 101
-2024/11/27 10:00:00 Successfully stored Employee object in cache.
-2024/11/27 10:00:00 Retrieving Employee object from cache with key: 101
-2024/11/27 10:00:00 Successfully retrieved and unmarshalled Employee object: {ID:101 Name:Alice}
+    2024/11/27 10:00:00 Initialized Redis client and store.
+    2024/11/27 10:00:00 Initialized cache manager with Redis store.
+    2024/11/27 10:00:00 Initialized marshaler for caching complex objects.
+    2024/11/27 10:00:00 Prepared Employee object for caching: {ID:101 Name:Alice}
+    2024/11/27 10:00:00 Storing Employee object in cache with key: 101
+    2024/11/27 10:00:00 Successfully stored Employee object in cache.
+    2024/11/27 10:00:00 Retrieving Employee object from cache with key: 101
+    2024/11/27 10:00:00 Successfully retrieved and unmarshalled Employee object: {ID:101 Name:Alice}
 
 ## Code Explanation
 
@@ -76,28 +71,28 @@ Main Steps
 
 Employee Struct
 
-The Employee struct contains:
-• ID: A unique identifier for the employee.
-• Name: The name of the employee.
+    The Employee struct contains:
+    • ID: A unique identifier for the employee.
+    • Name: The name of the employee.
 
-Customization
+## Customization
 
 Change Redis Address
 
 To use a different Redis server, update the address in the redis.Options:
 
-redisClient := redis.NewClient(&redis.Options{Addr: "YOUR_REDIS_SERVER:PORT"})
+    redisClient := redis.NewClient(&redis.Options{Addr: "YOUR_REDIS_SERVER:PORT"})
 
 ## Add More Data
 
 You can extend the Employee struct with additional fields, such as:
 
-type Employee struct {
-ID string
-Name string
-Department string
-Salary float64
-}
+    type Employee struct {
+    ID string
+    Name string
+    Department string
+    Salary float64
+    }
 
 ## Dependencies
 
@@ -106,8 +101,8 @@ Salary float64
 
 Install them using:
 
-go get github.com/eko/gocache
-go get github.com/redis/go-redis/v9
+    go get github.com/eko/gocache
+    go get github.com/redis/go-redis/v9
 
 ## Contributing
 
